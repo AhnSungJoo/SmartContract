@@ -1,6 +1,6 @@
 pragma solidity ^0.4.20;
 
-library SafeMath // ¿À¹öÇÃ·Î¿ì¸¦ ¹æÁöÇÏ±â À§ÇÑ SafeMath ÇÔ¼ö, mul,div,sub,add ÃÑ 4°³ÀÇ ÇÔ¼ö°¡ Á¤ÀÇµÇ¾î ÀÖ´Ù.
+library SafeMath // ì˜¤ë²„í”Œë¡œìš°ë¥¼ ë°©ì§€í•˜ê¸° ìœ„í•œ SafeMath í•¨ìˆ˜, mul,div,sub,add ì´ 4ê°œì˜ í•¨ìˆ˜ê°€ ì •ì˜ë˜ì–´ ìˆë‹¤.
 {
     function mul(uint256 a, uint256 b) internal pure returns (uint256)
     {
@@ -33,67 +33,67 @@ library SafeMath // ¿À¹öÇÃ·Î¿ì¸¦ ¹æÁöÇÏ±â À§ÇÑ SafeMath ÇÔ¼ö, mul,div,sub,add ÃÑ
     }
 }
 
-contract OwnerHelper // publicÀ¸·Î °ø°³µÇ¾î ÀÖ´Â ÇÔ¼ö Áß¿¡ °ü¸®ÀÚ¸¸ Á¢±Ù °¡´ÉÇÑ ÇÔ¼ö¸¦ ¸¸µå´Â °Í
+contract OwnerHelper // publicìœ¼ë¡œ ê³µê°œë˜ì–´ ìˆëŠ” í•¨ìˆ˜ ì¤‘ì— ê´€ë¦¬ìë§Œ ì ‘ê·¼ ê°€ëŠ¥í•œ í•¨ìˆ˜ë¥¼ ë§Œë“œëŠ” ê²ƒ
 {
-    address public owner; // ÀÌ °è¾àÀ» »ı¼ºÇÑ »ç¶÷ÀÇ ÁÖ¼Ò
+    address public owner; // ì´ ê³„ì•½ì„ ìƒì„±í•œ ì‚¬ëŒì˜ ì£¼ì†Œ
 
-    event OwnerTransferPropose(address indexed _from, address indexed _to); // °ü¸®ÀÚ¸¦ º¯°æÇÒ °æ¿ì¸¦ ´ëºñÇØ OwnerTransferPropose ÀÌº¥Æ® Á¤ÀÇ
+    event OwnerTransferPropose(address indexed _from, address indexed _to); // ê´€ë¦¬ìë¥¼ ë³€ê²½í•  ê²½ìš°ë¥¼ ëŒ€ë¹„í•´ OwnerTransferPropose ì´ë²¤íŠ¸ ì •ì˜
 
-    modifier onlyOwner // onlyOwner°¡ ÀÓÀÇÀÇ function ÇÔ¼ö¿¡ Á¢¹Ì»ç·Î ºÙÀÌ°Ô µÉ °æ¿ì ÇØ´ç functionÀ» ½ÇÇà ÇÏ±â Àü¿¡ modifier onlyOwner·Î ¼±¾ğµÈ ³»¿ëÀÌ ½ÇÇà
+    modifier onlyOwner // onlyOwnerê°€ ì„ì˜ì˜ function í•¨ìˆ˜ì— ì ‘ë¯¸ì‚¬ë¡œ ë¶™ì´ê²Œ ë  ê²½ìš° í•´ë‹¹ functionì„ ì‹¤í–‰ í•˜ê¸° ì „ì— modifier onlyOwnerë¡œ ì„ ì–¸ëœ ë‚´ìš©ì´ ì‹¤í–‰
 
     {
-        require(msg.sender == owner); // ÀÌ ÇÔ¼ö¸¦ owner(°ü¸®ÀÚ)¸¸ »ç¿ëÇÒ ¼ö ÀÖµµ·Ï ¼³Á¤
-        _; // onlyOwnerÇÔ¼ö°¡ ½ÇÇàÀÌ ¾ÈµÇ¸é Áï ÇØ´ç ÇÔ¼ö function ¸¦ ½ÇÇàÇÏ´Â »ç¶÷ÀÌ °ü¸®ÀÚ°¡ ¾Æ´Ï¸é function ÇÔ¼ö·Î Á¢±ÙÀÌ ºÒ°¡´ÉÇÏ°Ô ¸·¾Æ ³ğ
+        require(msg.sender == owner); // ì´ í•¨ìˆ˜ë¥¼ owner(ê´€ë¦¬ì)ë§Œ ì‚¬ìš©í•  ìˆ˜ ìˆë„ë¡ ì„¤ì •
+        _; // onlyOwnerí•¨ìˆ˜ê°€ ì‹¤í–‰ì´ ì•ˆë˜ë©´ ì¦‰ í•´ë‹¹ í•¨ìˆ˜ function ë¥¼ ì‹¤í–‰í•˜ëŠ” ì‚¬ëŒì´ ê´€ë¦¬ìê°€ ì•„ë‹ˆë©´ function í•¨ìˆ˜ë¡œ ì ‘ê·¼ì´ ë¶ˆê°€ëŠ¥í•˜ê²Œ ë§‰ì•„ ë†ˆ
     }
 
-    function OwnerHelper () public // »ı¼ºÀÚ 
+    function OwnerHelper () public // ìƒì„±ì 
     {
         owner = msg.sender; 
     }
 
     function transferOwnership(address _to) onlyOwner public
     {
-        require(_to != owner);  // °ü¸®ÀÚ¸¦ º¯°æÇÏ·Á´Â ´ë»óÀÌ ÀÌ¹Ì °ü¸®ÀÚÀÌ¸é ¾ÈµÇ±â ¶§¹®¿¡ require·Î °Ë»ç 
+        require(_to != owner);  // ê´€ë¦¬ìë¥¼ ë³€ê²½í•˜ë ¤ëŠ” ëŒ€ìƒì´ ì´ë¯¸ ê´€ë¦¬ìì´ë©´ ì•ˆë˜ê¸° ë•Œë¬¸ì— requireë¡œ ê²€ì‚¬ 
         require(_to != address(0x0)); 
         owner = _to;
         OwnerTransferPropose(owner, _to);
     }
 }
 
-contract ERC20Interface // »õ·Î¿î ÄÁÆ®·¢Æ®ÀÎ ERC20Interface ÄÁÆ®·¢Æ® ÁÖ¾îÁö´Â ÀÌº¥Æ®¿Í ÇÔ¼ö´Â ÀÌ´õ¸®¿ò¿¡¼­ Á¦°øÇÏ´Â ÇÔ¼ö 
-                     // event´Â Æ®·£Àè¼Ç ³»¿ë ¾È¿¡ log¸¦ ³²±â´Â ÇÔ¼ö 
-                     // ÄÁÆ®·¢Æ®¸¦ ½ÇÇàÇÑ »ç¶÷(msg.sender)¿Í owner°¡ °°Àº °æ¿ì´Â Æ¯Á¤ ÇÔ¼ö¸¦ °ü¸®ÀÚ¸¸ »ç¿ë ÇÏµµ·Ï ¼³Á¤ÇÒ ¶§ ÀÌ´Ù.
+contract ERC20Interface // ìƒˆë¡œìš´ ì»¨íŠ¸ë™íŠ¸ì¸ ERC20Interface ì»¨íŠ¸ë™íŠ¸ ì£¼ì–´ì§€ëŠ” ì´ë²¤íŠ¸ì™€ í•¨ìˆ˜ëŠ” ì´ë”ë¦¬ì›€ì—ì„œ ì œê³µí•˜ëŠ” í•¨ìˆ˜ 
+                     // eventëŠ” íŠ¸ëœì­ì…˜ ë‚´ìš© ì•ˆì— logë¥¼ ë‚¨ê¸°ëŠ” í•¨ìˆ˜ 
+                     // ì»¨íŠ¸ë™íŠ¸ë¥¼ ì‹¤í–‰í•œ ì‚¬ëŒ(msg.sender)ì™€ ownerê°€ ê°™ì€ ê²½ìš°ëŠ” íŠ¹ì • í•¨ìˆ˜ë¥¼ ê´€ë¦¬ìë§Œ ì‚¬ìš© í•˜ë„ë¡ ì„¤ì •í•  ë•Œ ì´ë‹¤.
 {
-    event Transfer( address indexed _from, address indexed _to, uint _value); // Transfer´Â ÅäÅ«ÀÌ ÀÌµ¿ÀÌ ÀÖÀ» ¶§¸¶´Ù ³²±â´Â ·Î±×
-    event Approval( address indexed _owner, address indexed _spender, uint _value); // Approval´Â approveÇÔ¼ö¿¡ ´ëÇØ ½ÇÇàÀÌ µÉ ¶§ ³²±â´Â ·Î±×
+    event Transfer( address indexed _from, address indexed _to, uint _value); // TransferëŠ” í† í°ì´ ì´ë™ì´ ìˆì„ ë•Œë§ˆë‹¤ ë‚¨ê¸°ëŠ” ë¡œê·¸
+    event Approval( address indexed _owner, address indexed _spender, uint _value); // ApprovalëŠ” approveí•¨ìˆ˜ì— ëŒ€í•´ ì‹¤í–‰ì´ ë  ë•Œ ë‚¨ê¸°ëŠ” ë¡œê·¸
    
-    function totalSupply() constant public returns (uint _supply); // ÇØ´ç ½º¸¶Æ® ÄÁÆ®·¢Æ® ±â¹İ ERC-20 ÅäÅ«ÀÇ ÃÑ ¹ßÇà·® È®ÀÎ
-    function balanceOf( address _who ) constant public returns (uint _value); // owner°¡ °¡Áö°í ÀÖ´Â ÅäÅ«ÀÇ º¸À¯·® È®ÀÎ 
-    function transfer( address _to, uint _value) public returns (bool _success); // ÅäÅ«À» Àü¼Û 
-    function approve( address _spender, uint _value ) public returns (bool _success); // ÅäÅ«À» Àü¼Û °¡´É ÇÏµµ·Ï spender(°Å·¡¼Ò)¿¡°Ô ¾çµµÇÒ ÅäÅ«ÀÇ ¾çÀ» ¼³Á¤
-    function allowance( address _owner, address _spender ) constant public returns (uint _allowance); // owner°¡ spender(°Å·¡¼Ò)¿¡°Ô ¾çµµ ¼³Á¤ÇÑ ÅäÅ«ÀÇ ¾çÀ» È®ÀÎ
-    function transferFrom( address _from, address _to, uint _value) public returns (bool _success); // spender(°Å·¡¼Ò)°¡ °Å·¡ °¡´ÉÇÏµµ·Ï ¾çµµ ¹ŞÀº ÅäÅ«À» _to(»ó´ë¹æ)¿¡°Ô Àü¼Û
+    function totalSupply() constant public returns (uint _supply); // í•´ë‹¹ ìŠ¤ë§ˆíŠ¸ ì»¨íŠ¸ë™íŠ¸ ê¸°ë°˜ ERC-20 í† í°ì˜ ì´ ë°œí–‰ëŸ‰ í™•ì¸
+    function balanceOf( address _who ) constant public returns (uint _value); // ownerê°€ ê°€ì§€ê³  ìˆëŠ” í† í°ì˜ ë³´ìœ ëŸ‰ í™•ì¸ 
+    function transfer( address _to, uint _value) public returns (bool _success); // í† í°ì„ ì „ì†¡ 
+    function approve( address _spender, uint _value ) public returns (bool _success); // í† í°ì„ ì „ì†¡ ê°€ëŠ¥ í•˜ë„ë¡ spender(ê±°ë˜ì†Œ)ì—ê²Œ ì–‘ë„í•  í† í°ì˜ ì–‘ì„ ì„¤ì •
+    function allowance( address _owner, address _spender ) constant public returns (uint _allowance); // ownerê°€ spender(ê±°ë˜ì†Œ)ì—ê²Œ ì–‘ë„ ì„¤ì •í•œ í† í°ì˜ ì–‘ì„ í™•ì¸
+    function transferFrom( address _from, address _to, uint _value) public returns (bool _success); // spender(ê±°ë˜ì†Œ)ê°€ ê±°ë˜ ê°€ëŠ¥í•˜ë„ë¡ ì–‘ë„ ë°›ì€ í† í°ì„ _to(ìƒëŒ€ë°©)ì—ê²Œ ì „ì†¡
 }
 
-contract HyunJaeToken is ERC20Interface, OwnerHelper // SimpleTokenÀÌ ERC20Interface ¹× OwnerHelper¸¦ »ó¼ÓÇÏ¿© ERC20Interface ¹× OwnerHelper ÇÔ¼ö¸¦ »ç¿ë°¡´ÉÇÏ°Ô ÇÔ
-                                                     // HyunJaeTokenÀÌ¶ó´Â ÇÏ³ªÀÇ ÄÁÆ®·¢Æ® ±¸¼º, ¹Ø¿¡ ÄÁÆ®·¢Æ® ³»¿¡¼­ »ç¿ëÇÒ º¯¼ö¿¡ ´ëÇØ¼­ ÀÌ¸§À» ¼±¾ğ 
+contract SungJooToken is ERC20Interface, OwnerHelper // SimpleTokenì´ ERC20Interface ë° OwnerHelperë¥¼ ìƒì†í•˜ì—¬ ERC20Interface ë° OwnerHelper í•¨ìˆ˜ë¥¼ ì‚¬ìš©ê°€ëŠ¥í•˜ê²Œ í•¨
+                                                     // SungJooToken í•˜ë‚˜ì˜ ì»¨íŠ¸ë™íŠ¸ êµ¬ì„±, ë°‘ì— ì»¨íŠ¸ë™íŠ¸ ë‚´ì—ì„œ ì‚¬ìš©í•  ë³€ìˆ˜ì— ëŒ€í•´ì„œ ì´ë¦„ì„ ì„ ì–¸ 
 {
-    using SafeMath for uint256; // SafeMath ¶óÀÌºê·¯¸® ÇÔ¼ö¸¦ ¾²±â À§ÇÑ ÀÛ¼º¹®
+    using SafeMath for uint256; // SafeMath ë¼ì´ë¸ŒëŸ¬ë¦¬ í•¨ìˆ˜ë¥¼ ì“°ê¸° ìœ„í•œ ì‘ì„±ë¬¸
     
-    string public name; // ÄÁÆ®·¢Æ®·Î ¼±¾ğÇÒ ÅäÅ«ÀÇ ÀÌ¸§
-    uint public decimals; // ÅäÅ«ÀÇ ¼Ò¼ıÁ¡ ¾Æ·¡ ÀÚ¸®¼ö
-    string public symbol; // ÅäÅ« ÀÌ¸§ÀÇ ÁÙÀÓ¸»
-    uint public totalSupply; // ÅäÅ«ÀÇ ÃÑ ¹ßÇà·®
-    address public wallet; // 0x·Î ½ÃÀÛÇÏ´Â 42ÀÚ¸®ÀÇ StringÀÎ Áö°©ÀÇ ÁÖ¼Ò
+    string public name; // ì»¨íŠ¸ë™íŠ¸ë¡œ ì„ ì–¸í•  í† í°ì˜ ì´ë¦„
+    uint public decimals; // í† í°ì˜ ì†Œìˆ«ì  ì•„ë˜ ìë¦¬ìˆ˜
+    string public symbol; // í† í° ì´ë¦„ì˜ ì¤„ì„ë§
+    uint public totalSupply; // í† í°ì˜ ì´ ë°œí–‰ëŸ‰
+    address public wallet; // 0xë¡œ ì‹œì‘í•˜ëŠ” 42ìë¦¬ì˜ Stringì¸ ì§€ê°‘ì˜ ì£¼ì†Œ
     
     uint public maxSupply;
     uint public mktSupply;
     uint public devSupply;
     uint public saleSupply;
 
-    uint public tokenIssuedSale; // ÆÇ¸ÅÇÑ ÅäÅ«ÀÇ ¾ç    
-    uint public tokenIssuedMkt; // È¸»ç ¸¶ÄÉÆÃ ºñ¿ë
-    uint public tokenIssuedDevelop; // °³¹ß ºñ¿ë
+    uint public tokenIssuedSale; // íŒë§¤í•œ í† í°ì˜ ì–‘    
+    uint public tokenIssuedMkt; // íšŒì‚¬ ë§ˆì¼€íŒ… ë¹„ìš©
+    uint public tokenIssuedDevelop; // ê°œë°œ ë¹„ìš©
 
     uint public saleEtherReceived;
 
@@ -101,49 +101,49 @@ contract HyunJaeToken is ERC20Interface, OwnerHelper // SimpleTokenÀÌ ERC20Inter
     
     uint public burnRatio = 0;
     
-    uint private E18 = 1000000000000000000; // ¼Ò¼öÁ¡ ¾Æ·¡ ÀÚ¸®¼ö¸¦ °£´ÜÈ÷ »ç¿ëÇÏ±â À§ÇÑ 0ÀÌ 18°³ µé¾î°£ Çü½Ä, ÃÖ´ë ¼Ò¼öÁ¡ ¾Æ·¡·Î 18°³ÀÇ 0À» ºÙÀÎ¸¸Å­ ÂÉ°³¼­ ±³È¯ÇÒ ¼ö ÀÖ±â ¶§¹®ÀÌ´Ù
-    uint public ethPerToken = 4000; // 1ÀÌ´õ´ç Áö±ŞÇÒ ÃÖ¼ÒÀÇ ÅäÅ«ÀÇ ¾ç 
+    uint private E18 = 1000000000000000000; // ì†Œìˆ˜ì  ì•„ë˜ ìë¦¬ìˆ˜ë¥¼ ê°„ë‹¨íˆ ì‚¬ìš©í•˜ê¸° ìœ„í•œ 0ì´ 18ê°œ ë“¤ì–´ê°„ í˜•ì‹, ìµœëŒ€ ì†Œìˆ˜ì  ì•„ë˜ë¡œ 18ê°œì˜ 0ì„ ë¶™ì¸ë§Œí¼ ìª¼ê°œì„œ êµí™˜í•  ìˆ˜ ìˆê¸° ë•Œë¬¸ì´ë‹¤
+    uint public ethPerToken = 4000; // 1ì´ë”ë‹¹ ì§€ê¸‰í•  ìµœì†Œì˜ í† í°ì˜ ì–‘ 
     uint public privateSaleBonus = 50;
     uint public preSalePrimaryBonus = 30;
     uint public presaleSecondBonus = 20;
     uint public crowdSalePrimaryBonus = 10;
     uint public crowdSaleSecondBonus = 0;
 
-    uint public privateSaleStartDate; // ÇÁ¶óÀÌºø ¼¼ÀÏ ½ÃÀÛ ³¯Â¥
-    uint public privateSaleEndDate; // ÇÁ¶óÀÌºø ¼¼ÀÏ Á¾·á ³¯Â¥
+    uint public privateSaleStartDate; // í”„ë¼ì´ë¹— ì„¸ì¼ ì‹œì‘ ë‚ ì§œ
+    uint public privateSaleEndDate; // í”„ë¼ì´ë¹— ì„¸ì¼ ì¢…ë£Œ ë‚ ì§œ
     
-    uint public preSalePrimaryStartDate; // ÇÁ¸® ¼¼ÀÏ 1Â÷ ½ÃÀÛ ³¯Â¥
-    uint public preSalePrimaryEndDate; //   ÇÁ¸® ¼¼ÀÏ 1Â÷ Á¾·á ³¯Â¥
+    uint public preSalePrimaryStartDate; // í”„ë¦¬ ì„¸ì¼ 1ì°¨ ì‹œì‘ ë‚ ì§œ
+    uint public preSalePrimaryEndDate; //   í”„ë¦¬ ì„¸ì¼ 1ì°¨ ì¢…ë£Œ ë‚ ì§œ
     
-    uint public preSaleSecondStartDate; // ÇÁ¸® ¼¼ÀÏ 2Â÷ ½ÃÀÛ ³¯Â¥
-    uint public preSaleSecondEndDate; //   ÇÁ¸® ¼¼ÀÏ 2Â÷ Á¾·á ³¯Â¥
+    uint public preSaleSecondStartDate; // í”„ë¦¬ ì„¸ì¼ 2ì°¨ ì‹œì‘ ë‚ ì§œ
+    uint public preSaleSecondEndDate; //   í”„ë¦¬ ì„¸ì¼ 2ì°¨ ì¢…ë£Œ ë‚ ì§œ
     
-    uint public crowdSalePrimaryStartDate; // Å©¶ó¿ìµå ¼¼ÀÏ 1Â÷ ½ÃÀÛ ³¯Â¥
-    uint public crowdSalePrimaryEndDate; //   Å©¶ó¿ìµå ¼¼ÀÏ 1Â÷ Á¾·á ³¯Â¥
+    uint public crowdSalePrimaryStartDate; // í¬ë¼ìš°ë“œ ì„¸ì¼ 1ì°¨ ì‹œì‘ ë‚ ì§œ
+    uint public crowdSalePrimaryEndDate; //   í¬ë¼ìš°ë“œ ì„¸ì¼ 1ì°¨ ì¢…ë£Œ ë‚ ì§œ
     
-    uint public crowdSaleSecondStartDate; // Å©¶ó¿ìµå ¼¼ÀÏ 2Â÷ ½ÃÀÛ ³¯Â¥
-    uint public crowdSaleSecondEndDate; //   Å©¶ó¿ìµå ¼¼ÀÏ 2Â÷ Á¾·á ³¯Â¥
+    uint public crowdSaleSecondStartDate; // í¬ë¼ìš°ë“œ ì„¸ì¼ 2ì°¨ ì‹œì‘ ë‚ ì§œ
+    uint public crowdSaleSecondEndDate; //   í¬ë¼ìš°ë“œ ì„¸ì¼ 2ì°¨ ì¢…ë£Œ ë‚ ì§œ
     
-    bool public tokenLock; // ÅäÅ«ÀÇ »ı¼º ¶§ ÅäÅ«ÀÇ ÀÌµ¿À» Á¦ÇÑÇÏ¿© ÀÌµ¿À» ºÒ°¡´É ÇÏµµ·Ï ÇÕ´Ï´Ù.
+    bool public tokenLock; // í† í°ì˜ ìƒì„± ë•Œ í† í°ì˜ ì´ë™ì„ ì œí•œí•˜ì—¬ ì´ë™ì„ ë¶ˆê°€ëŠ¥ í•˜ë„ë¡ í•©ë‹ˆë‹¤.
     
-    mapping (address => uint) internal balances; // ÇØ´ç ÅäÅ«À» ¼ÒÀ¯ÇÏ°í ÀÖ´Â Áö°©ÀÇ ¼ö ¶Ç´Â Áö°©µéÀÇ ÅäÅ« °³¼ö°¡ ¸î°³ÀÎÁö È®ÀÎÇÏ´Âµ¥ »ç¿ë  Key : address, Value : uint
-    mapping (address => mapping ( address => uint )) internal approvals; // Key : OwnerÀÇ address, Value(Key : Spender(°Å·¡¼Ò)ÀÇ address, Value : °Å·¡¼Ò¿¡ ¸Ã°ÜµĞ TokenÀÇ °³¼ö)
+    mapping (address => uint) internal balances; // í•´ë‹¹ í† í°ì„ ì†Œìœ í•˜ê³  ìˆëŠ” ì§€ê°‘ì˜ ìˆ˜ ë˜ëŠ” ì§€ê°‘ë“¤ì˜ í† í° ê°œìˆ˜ê°€ ëª‡ê°œì¸ì§€ í™•ì¸í•˜ëŠ”ë° ì‚¬ìš©  Key : address, Value : uint
+    mapping (address => mapping ( address => uint )) internal approvals; // Key : Ownerì˜ address, Value(Key : Spender(ê±°ë˜ì†Œ)ì˜ address, Value : ê±°ë˜ì†Œì— ë§¡ê²¨ë‘” Tokenì˜ ê°œìˆ˜)
 
     mapping (address => bool) internal personalLock;
-    mapping (address => uint) internal icoEtherContributeds; // °³ÀÎÀÌ ICO¿¡ Âü¿©ÇÑ ÀÌ´õÀÇ °³¼ö
+    mapping (address => uint) internal icoEtherContributeds; // ê°œì¸ì´ ICOì— ì°¸ì—¬í•œ ì´ë”ì˜ ê°œìˆ˜
     
     event BurnToken(uint saleSupply, uint devSupply, uint mktSupply);    
-    event RemoveLock(address indexed _who); // ¶ô Á¦°Å ÀÌº¥Æ®
-    event WithdrawMkt(address indexed _to, uint _value); // È¸»ç Ãâ±İ ÀÌº¥Æ®
+    event RemoveLock(address indexed _who); // ë½ ì œê±° ì´ë²¤íŠ¸
+    event WithdrawMkt(address indexed _to, uint _value); // íšŒì‚¬ ì¶œê¸ˆ ì´ë²¤íŠ¸
 
-    function HyunJaeToken () public // functionÀº ÄÁÆ®·¢Æ® ³»¿¡¼­ »ç¿ëµÇ´Â ÇÔ¼öÀÌ¸ç »ı¼ºÀÚ´Â »ı¼º°ú µ¿½Ã¿¡ ¹Ù·Î ½ÇÇà
+    function SungJooToken () public // functionì€ ì»¨íŠ¸ë™íŠ¸ ë‚´ì—ì„œ ì‚¬ìš©ë˜ëŠ” í•¨ìˆ˜ì´ë©° ìƒì„±ìëŠ” ìƒì„±ê³¼ ë™ì‹œì— ë°”ë¡œ ì‹¤í–‰
     {
-        name = "HyunJaeToken"; // ÅäÅ«ÀÇ ÀÌ¸§ HyunjaeToken
-        decimals = 18; // ÅäÅ«ÀÇ ¼Ò¼ıÁ¡ ¾Æ·¡ ÀÚ¸® ¼ö´Â 18ÀÚ¸®
-        symbol = "HJ"; // ÅäÅ« ÀÌ¸§ÀÇ ÁÙÀÓ¸»Àº HJ
-        totalSupply = 0; // ÅäÅ«ÀÇ ÃÑ¹ßÇà·®À» 0À¸·Î ÃÊ±âÈ­
+        name = "SungJooToken"; // í† í°ì˜ ì´ë¦„ SungJooToken
+        decimals = 18; // í† í°ì˜ ì†Œìˆ«ì  ì•„ë˜ ìë¦¬ ìˆ˜ëŠ” 18ìë¦¬
+        symbol = "SJT"; // í† í° ì´ë¦„ì˜ ì¤„ì„ë§ì€ SJT
+        totalSupply = 0; // í† í°ì˜ ì´ë°œí–‰ëŸ‰ì„ 0ìœ¼ë¡œ ì´ˆê¸°í™”
    
-       wallet = msg.sender; // ÄÁÆ®·¢Æ®¸¦ ½ÇÇàÇÏ´Â »ç¶÷ÀÇ ÁÖ¼Ò¸¦ ÀúÀå
+       wallet = msg.sender; // ì»¨íŠ¸ë™íŠ¸ë¥¼ ì‹¤í–‰í•˜ëŠ” ì‚¬ëŒì˜ ì£¼ì†Œë¥¼ ì €ì¥
    
        maxSupply = 100000000 * E18;
         mktSupply =  20000000 * E18;
@@ -154,7 +154,7 @@ contract HyunJaeToken is ERC20Interface, OwnerHelper // SimpleTokenÀÌ ERC20Inter
         tokenIssuedMkt = 0;
         tokenIssuedDevelop = 0;
         
-       saleEtherReceived = 0; // ÆÇ¸Å·Î ¼öÁıµÈ ÀÌ´õÀÇ °³¼ö¸¦ ÀúÀå
+       saleEtherReceived = 0; // íŒë§¤ë¡œ ìˆ˜ì§‘ëœ ì´ë”ì˜ ê°œìˆ˜ë¥¼ ì €ì¥
     
         tokenLock = true;
          
@@ -176,25 +176,25 @@ contract HyunJaeToken is ERC20Interface, OwnerHelper // SimpleTokenÀÌ ERC20Inter
     
     function atNow() public constant returns(uint) 
     {
-        return now; // ¼Ö¸®µğÆ¼ ³»ºÎ¿¡¼­´Â ÇöÀç½Ã°£À» now·Î ¹Ş¾Æ¿Ã ¼ö ÀÖÀ½
+        return now; // ì†”ë¦¬ë””í‹° ë‚´ë¶€ì—ì„œëŠ” í˜„ì¬ì‹œê°„ì„ nowë¡œ ë°›ì•„ì˜¬ ìˆ˜ ìˆìŒ
     }
     
-    function () payable public // ÇÔ¼ö È£ÃâÀ» ÅëÇØ¼­ ÀÌ´õ¸¦ º¸³»´Â °ÍÀ» °¡´ÉÄÉ ÇÔ
+    function () payable public // í•¨ìˆ˜ í˜¸ì¶œì„ í†µí•´ì„œ ì´ë”ë¥¼ ë³´ë‚´ëŠ” ê²ƒì„ ê°€ëŠ¥ì¼€ í•¨
     {
         buyToken();
     }
     
     function buyToken() private
     {
-        require(saleSupply > tokenIssuedSale); // ÆÇ¸Å¸¦ ÇÒ ÅäÅ« ¹°·®°ú ÆÇ¸ÅµÈ ÅäÅ« ¹°·®À» °Ë»ç Áï ÆÇ¸Å¸¦ ÇÒ ÅäÅ«ÀÇ ¾çÀÌ ÆÇ¸ÅµÈ ¾çÀÇ ÅäÅ«º¸´Ù °°¾Æ¼­µµ ¾ÈµÇ°í                     // ¹«Á¶°Ç Ä¿¾ßµÈ´Ù. require ÇÔ¼ö¸¦ Åë°ú Çß´Ù´Â °ÍÀº ÆÇ¸ÅÇÒ ¼ö ÀÖ´Â ÅäÅ«ÀÇ ¾çÀÌ Á¸ÀçÇÑ´Ù´Â °ÍÀ» ÀÇ¹Ì
+        require(saleSupply > tokenIssuedSale); // íŒë§¤ë¥¼ í•  í† í° ë¬¼ëŸ‰ê³¼ íŒë§¤ëœ í† í° ë¬¼ëŸ‰ì„ ê²€ì‚¬ ì¦‰ íŒë§¤ë¥¼ í•  í† í°ì˜ ì–‘ì´ íŒë§¤ëœ ì–‘ì˜ í† í°ë³´ë‹¤ ê°™ì•„ì„œë„ ì•ˆë˜ê³                      // ë¬´ì¡°ê±´ ì»¤ì•¼ëœë‹¤. require í•¨ìˆ˜ë¥¼ í†µê³¼ í–ˆë‹¤ëŠ” ê²ƒì€ íŒë§¤í•  ìˆ˜ ìˆëŠ” í† í°ì˜ ì–‘ì´ ì¡´ì¬í•œë‹¤ëŠ” ê²ƒì„ ì˜ë¯¸
         
-        uint saleType = 0;   // 1 : Private , 2 : 1Â÷ Pre  , 3 : 2Â÷ Pre  , 4 : 1Â÷ Crowd , 5 : 2Â÷ Crowd
-        uint saleBonus = 0;  // ÇÁ¶óÀÌºø, ÇÁ¸®, Å©¶ó¿ìµå °¢ ½Ã°£¿¡ ¸Â´Â ÆÇ¸Å º¸³Ê½º ÀúÀå
+        uint saleType = 0;   // 1 : Private , 2 : 1ì°¨ Pre  , 3 : 2ì°¨ Pre  , 4 : 1ì°¨ Crowd , 5 : 2ì°¨ Crowd
+        uint saleBonus = 0;  // í”„ë¼ì´ë¹—, í”„ë¦¬, í¬ë¼ìš°ë“œ ê° ì‹œê°„ì— ë§ëŠ” íŒë§¤ ë³´ë„ˆìŠ¤ ì €ì¥
 
-       uint minEth = 1 ether; // °Å·¡¿¡ Âü¿©ÇÏ±â À§ÇÑ »ç¿ëÀÚ°¡ °®°íÀÖ¾î¾ß ÇÒ ÃÖ¼Ò ÀÌ´õÀÇ ¼ö: 0
-       uint maxEth = 300 ether; // °Å·¡¿¡ Âü¿©ÇØ »ç¿ëÇÒ¼ö ÀÖ´Â °³ÀÎÀÇ ÃÖ´ë ÀÌ´õÀÇ ¼ö : 300ether
+       uint minEth = 1 ether; // ê±°ë˜ì— ì°¸ì—¬í•˜ê¸° ìœ„í•œ ì‚¬ìš©ìê°€ ê°–ê³ ìˆì–´ì•¼ í•  ìµœì†Œ ì´ë”ì˜ ìˆ˜: 0
+       uint maxEth = 300 ether; // ê±°ë˜ì— ì°¸ì—¬í•´ ì‚¬ìš©í• ìˆ˜ ìˆëŠ” ê°œì¸ì˜ ìµœëŒ€ ì´ë”ì˜ ìˆ˜ : 300ether
         
-        uint nowTime = atNow(); // ÇöÀç ½Ã°£À» ÀúÀå
+        uint nowTime = atNow(); // í˜„ì¬ ì‹œê°„ì„ ì €ì¥
 
         if(nowTime >= privateSaleStartDate && nowTime < privateSaleEndDate)
         {
@@ -222,24 +222,24 @@ contract HyunJaeToken is ERC20Interface, OwnerHelper // SimpleTokenÀÌ ERC20Inter
             saleBonus = crowdSaleSecondBonus;
         }
         
-        require (saleType >= 1 && saleType <= 5);   /* À§ ÄÚµå´Â Áö±İ ½Ã°£¿¡ ¸Â´Â ¼¼ÀÏ Á¾·ù(ÇÁ¶óÀÌºø,ÇÁ¸®,Å©¶ó¿ìµå) ¹× ÆÇ¸Å º¸³Ê½º ÀúÀå*/
+        require (saleType >= 1 && saleType <= 5);   /* ìœ„ ì½”ë“œëŠ” ì§€ê¸ˆ ì‹œê°„ì— ë§ëŠ” ì„¸ì¼ ì¢…ë¥˜(í”„ë¼ì´ë¹—,í”„ë¦¬,í¬ë¼ìš°ë“œ) ë° íŒë§¤ ë³´ë„ˆìŠ¤ ì €ì¥*/
 
-        require (msg.value >= minEth && icoEtherContributeds[msg.sender].add(msg.value) <= maxEth);    // ÄÁÆ®·¢Æ®¸¦ ½ÇÇàÇÑ »ç¶÷ÀÇ ÀÌ´õÀÇ ¾çÀÌ ÃÖ¼ÒÀÇ ÀÌ´õ¾ç(0)º¸´Ù ¸¹°í °³ÀÎÀÌ ICO¿¡ Âü¿©ÇÑ ÀÌ´õÀÇ °³¼ö°¡ ÃÖ´ëÀÌ´õÀÇ ¾ç(300)º¸´Ù ÀÛ°Å³ª °°ÀºÁö È®ÀÎ
+        require (msg.value >= minEth && icoEtherContributeds[msg.sender].add(msg.value) <= maxEth);    // ì»¨íŠ¸ë™íŠ¸ë¥¼ ì‹¤í–‰í•œ ì‚¬ëŒì˜ ì´ë”ì˜ ì–‘ì´ ìµœì†Œì˜ ì´ë”ì–‘(0)ë³´ë‹¤ ë§ê³  ê°œì¸ì´ ICOì— ì°¸ì—¬í•œ ì´ë”ì˜ ê°œìˆ˜ê°€ ìµœëŒ€ì´ë”ì˜ ì–‘(300)ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ì€ì§€ í™•ì¸
    
-        uint tokens = ethPerToken.mul(msg.value); // ÄÁÆ®·¢Æ® ½ÇÇàÇÑ »ç¶÷ÀÌ Áö±ŞÇÑ ÀÌ´õ(msg.value)ÀÇ °³¼ö¿¡ ¸Â´Â ÅäÅ«ÀÇ °³¼ö ÀúÀå
-        tokens = tokens.mul(100 + saleBonus) / 100; // ÅäÅ«ÀÇ °³¼ö * °Å·¡¿¡ Âü¿©ÇÑ ½Ã°£´ëÀÇ ÆÇ¸Å º¸³Ê½º 
+        uint tokens = ethPerToken.mul(msg.value); // ì»¨íŠ¸ë™íŠ¸ ì‹¤í–‰í•œ ì‚¬ëŒì´ ì§€ê¸‰í•œ ì´ë”(msg.value)ì˜ ê°œìˆ˜ì— ë§ëŠ” í† í°ì˜ ê°œìˆ˜ ì €ì¥
+        tokens = tokens.mul(100 + saleBonus) / 100; // í† í°ì˜ ê°œìˆ˜ * ê±°ë˜ì— ì°¸ì—¬í•œ ì‹œê°„ëŒ€ì˜ íŒë§¤ ë³´ë„ˆìŠ¤ 
         
-        require (saleSupply >= tokenIssuedSale.add(tokens)); // ÆÇ¸Å¸¦ ÇÒ ÅäÅ«ÀÇ ¾ç°ú ÆÇ¸ÅÇÒ ÅäÅ«ÀÇ ¾çÀ» ºñ±³
+        require (saleSupply >= tokenIssuedSale.add(tokens)); // íŒë§¤ë¥¼ í•  í† í°ì˜ ì–‘ê³¼ íŒë§¤í•  í† í°ì˜ ì–‘ì„ ë¹„êµ
 
-        tokenIssuedSale = tokenIssuedSale.add(tokens); // ÆÇ¸ÅÇÑ ÅäÅ«ÀÇ ¾çÀ» ÀúÀå
-       totalSupply = totalSupply.add(tokens); // ÅäÅ«ÀÇ ÃÑ ¹ßÇà·®¿¡ ÆÇ¸ÅÇÑ ÅäÅ«ÀÇ ¾çÀ» ÀúÀå
-       saleEtherReceived = saleEtherReceived.add(msg.value); // ¹ŞÀº ÀÌ´õÀÇ ¾çÀ» ÀúÀå 
+        tokenIssuedSale = tokenIssuedSale.add(tokens); // íŒë§¤í•œ í† í°ì˜ ì–‘ì„ ì €ì¥
+       totalSupply = totalSupply.add(tokens); // í† í°ì˜ ì´ ë°œí–‰ëŸ‰ì— íŒë§¤í•œ í† í°ì˜ ì–‘ì„ ì €ì¥
+       saleEtherReceived = saleEtherReceived.add(msg.value); // ë°›ì€ ì´ë”ì˜ ì–‘ì„ ì €ì¥ 
        
-       balances[msg.sender] = balances[msg.sender].add(tokens); // ÄÁÆ®·¢Æ®¸¦ ½ÇÇàÇÑ »ç¶÷ÀÇ ÅäÅ«ÀÇ °³¼ö¸¦ ´Ã·ÁÁÜ(ÅäÅ« ¹ßÇà)
-       icoEtherContributeds[msg.sender] = icoEtherContributeds[msg.sender].add(msg.value); // ÄÁÆ®·¢Æ®¸¦ ½ÇÇàÇÑ °³ÀÎÀÌ ICO¿¡ Âü¿©ÇÑ ÀÌ´õÀÇ ¼ö¸¦ ´õÇØÁÜ
-       personalLock[msg.sender] = true; // °³ÀÎ¶ôÀ» °É¾îÁÜ
+       balances[msg.sender] = balances[msg.sender].add(tokens); // ì»¨íŠ¸ë™íŠ¸ë¥¼ ì‹¤í–‰í•œ ì‚¬ëŒì˜ í† í°ì˜ ê°œìˆ˜ë¥¼ ëŠ˜ë ¤ì¤Œ(í† í° ë°œí–‰)
+       icoEtherContributeds[msg.sender] = icoEtherContributeds[msg.sender].add(msg.value); // ì»¨íŠ¸ë™íŠ¸ë¥¼ ì‹¤í–‰í•œ ê°œì¸ì´ ICOì— ì°¸ì—¬í•œ ì´ë”ì˜ ìˆ˜ë¥¼ ë”í•´ì¤Œ
+       personalLock[msg.sender] = true; // ê°œì¸ë½ì„ ê±¸ì–´ì¤Œ
 
-        Transfer(0x0, msg.sender, tokens); // ÅäÅ«ÀÇ ÀÌµ¿ÀÌ ÀÖÀ¸¸é ÀÌº¥Æ®(·Î±×)¸¦ ±â·Ï
+        Transfer(0x0, msg.sender, tokens); // í† í°ì˜ ì´ë™ì´ ìˆìœ¼ë©´ ì´ë²¤íŠ¸(ë¡œê·¸)ë¥¼ ê¸°ë¡
         
         wallet.transfer(address(this).balance);  
 
@@ -287,54 +287,54 @@ contract HyunJaeToken is ERC20Interface, OwnerHelper // SimpleTokenÀÌ ERC20Inter
 
     function totalSupply() constant public returns (uint)
     { 
-        return totalSupply; // ÃÑ ¹ßÇà·® °ªÀ» ¹İÈ¯¸¸ ÇÔ    
+        return totalSupply; // ì´ ë°œí–‰ëŸ‰ ê°’ì„ ë°˜í™˜ë§Œ í•¨    
     }
     
     function balanceOf(address _who) constant public returns (uint) 
     {
-        return balances[_who]; // mapping µÈ °ªÀÎ balances¿¡¼­ ÀÔ·ÂÇÑ addressÀÎ _who°¡ °¡Áö°í ÀÖ´Â ÅäÅ«ÀÇ ¼ö¸¦ ¸®ÅÏÇÔ
+        return balances[_who]; // mapping ëœ ê°’ì¸ balancesì—ì„œ ì…ë ¥í•œ addressì¸ _whoê°€ ê°€ì§€ê³  ìˆëŠ” í† í°ì˜ ìˆ˜ë¥¼ ë¦¬í„´í•¨
     }
     
     function transfer(address _to, uint _value) public returns (bool) 
     {
-        require(balances[msg.sender] >= _value); // ÅäÅ« ÀÌµ¿À» ½ÇÇàÇÑ »ç¶÷(msg.sender)ÀÌ ÀÌµ¿À» ½ÅÃ»ÇÑ °ª(_value)º¸´Ù ¸¹Àº ÅäÅ«À» °¡Áö°í ÀÖ¾î¾ß ÇÔ(require·Î °Ë»ç)
+        require(balances[msg.sender] >= _value); // í† í° ì´ë™ì„ ì‹¤í–‰í•œ ì‚¬ëŒ(msg.sender)ì´ ì´ë™ì„ ì‹ ì²­í•œ ê°’(_value)ë³´ë‹¤ ë§ì€ í† í°ì„ ê°€ì§€ê³  ìˆì–´ì•¼ í•¨(requireë¡œ ê²€ì‚¬)
         require(isTokenLock(msg.sender,_to) == true);
         
-        balances[msg.sender] = balances[msg.sender].sub(_value); // ³»°¡ °¡Áø ÅäÅ«ÀÇ Áö°©¿¡¼­ ÅäÅ«À» °³¼ö¸¸Å­ »©ÁÜ
-        balances[_to] = balances[_to].add(_value); // »ó´ë¹æÀÇ ÅäÅ« Áö°©¿¡ °³¼ö¸¸Å­ ´õÇØÁØ´Ù.
+        balances[msg.sender] = balances[msg.sender].sub(_value); // ë‚´ê°€ ê°€ì§„ í† í°ì˜ ì§€ê°‘ì—ì„œ í† í°ì„ ê°œìˆ˜ë§Œí¼ ë¹¼ì¤Œ
+        balances[_to] = balances[_to].add(_value); // ìƒëŒ€ë°©ì˜ í† í° ì§€ê°‘ì— ê°œìˆ˜ë§Œí¼ ë”í•´ì¤€ë‹¤.
         
-        Transfer(msg.sender, _to, _value); // eventÇÔ¼öÀÎ Transfer¸¦ ±â·Ï
+        Transfer(msg.sender, _to, _value); // eventí•¨ìˆ˜ì¸ Transferë¥¼ ê¸°ë¡
         
         return true;
     }
     
     function approve(address _spender, uint _value) public returns (bool)
     {
-        require(balances[msg.sender] >= _value); // ½ÇÇàÇÑ »ç¶÷(_msg.sender)ÀÇ ÅäÅ« °³¼ö´Â ¸Ã±æ °ªº¸´Ù ¸¹ÀÌ °¡Áö°í ÀÖ¾î¾ß ÇÔ(require·Î °Ë»ç)
+        require(balances[msg.sender] >= _value); // ì‹¤í–‰í•œ ì‚¬ëŒ(_msg.sender)ì˜ í† í° ê°œìˆ˜ëŠ” ë§¡ê¸¸ ê°’ë³´ë‹¤ ë§ì´ ê°€ì§€ê³  ìˆì–´ì•¼ í•¨(requireë¡œ ê²€ì‚¬)
         
-        approvals[msg.sender][_spender] = _value; // ³»°¡ µ·À» ¸Ã±æ »ó´ë¹æ(_spender)¿¡°Ô ¸Ã±æ °ª(_value)¸¦ approvals¿¡ °ªÀ» Àû¿ë
+        approvals[msg.sender][_spender] = _value; // ë‚´ê°€ ëˆì„ ë§¡ê¸¸ ìƒëŒ€ë°©(_spender)ì—ê²Œ ë§¡ê¸¸ ê°’(_value)ë¥¼ approvalsì— ê°’ì„ ì ìš©
         
-        Approval(msg.sender, _spender, _value); // eventÇÔ¼öÀÎ Approval¸¦ ±â·Ï
+        Approval(msg.sender, _spender, _value); // eventí•¨ìˆ˜ì¸ Approvalë¥¼ ê¸°ë¡
         
         return true;
     }
     
     function allowance(address _owner, address _spender) constant public returns (uint) 
     {
-        return approvals[_owner][_spender]; // ÀÔ·ÂÇÑ µÎ°³ÀÇ ÁÖ¼Ò°ª¿¡ ´ëÇÑ approvals¸¦ ¸®ÅÏ
+        return approvals[_owner][_spender]; // ì…ë ¥í•œ ë‘ê°œì˜ ì£¼ì†Œê°’ì— ëŒ€í•œ approvalsë¥¼ ë¦¬í„´
     }
     
-    function transferFrom(address _from, address _to, uint _value) public returns (bool) // °Å·¡ ´ëÇàÀÚ(spender)°¡ Owner(_from)°¡ Çã¶ôÇØÁØ ¸¸Å­ Buyer(_to)¿¡°Ô ÅäÅ«À» Áö±Ş
+    function transferFrom(address _from, address _to, uint _value) public returns (bool) // ê±°ë˜ ëŒ€í–‰ì(spender)ê°€ Owner(_from)ê°€ í—ˆë½í•´ì¤€ ë§Œí¼ Buyer(_to)ì—ê²Œ í† í°ì„ ì§€ê¸‰
     {
-        require(balances[_from] >= _value); // Owner(_from)°¡ °¡Áö°í ÀÖ´Â ÅäÅ«ÀÇ °³¼ö°¡ ÀÔ·ÂÇÑ ÅäÅ«ÀÇ °³¼öº¸´Ù ¸¹¾Æ¾ßÇÔ(require·Î °Ë»ç)
-        require(approvals[_from][msg.sender] >= _value); // ´ëÇàÀÚ¿¡°Ô Owner°¡ Çã¶ôÇØÁØ ÅäÅ«ÀÇ °³¼ö ¶ÇÇÑ ÀÔ·ÂÇÑ ÅäÅ«ÀÇ °³¼öº¸´Ù ¸¹¾Æ¾ß ÇÔ(require·Î °Ë»ç)    
+        require(balances[_from] >= _value); // Owner(_from)ê°€ ê°€ì§€ê³  ìˆëŠ” í† í°ì˜ ê°œìˆ˜ê°€ ì…ë ¥í•œ í† í°ì˜ ê°œìˆ˜ë³´ë‹¤ ë§ì•„ì•¼í•¨(requireë¡œ ê²€ì‚¬)
+        require(approvals[_from][msg.sender] >= _value); // ëŒ€í–‰ìì—ê²Œ Ownerê°€ í—ˆë½í•´ì¤€ í† í°ì˜ ê°œìˆ˜ ë˜í•œ ì…ë ¥í•œ í† í°ì˜ ê°œìˆ˜ë³´ë‹¤ ë§ì•„ì•¼ í•¨(requireë¡œ ê²€ì‚¬)    
         require(isTokenLock(_from,_to) == true); 
         
-        approvals[_from][msg.sender] = approvals[_from][msg.sender].sub(_value); // ´ëÇàÀÚ¿¡°Ô Çã¶ôÇÑ ÅäÅ«ÀÇ °³¼ö¸¦ ÀÔ·ÂÇÑ ÅäÅ«ÀÇ °³¼ö¿¡¼­ »©ÁÜ
-        balances[_from] = balances[_from].sub(_value); // ³»°¡ °¡Áö°í ÀÖ´Â ÅäÅ«ÀÇ °³¼ö¸¦ ÀÔ·ÂÇÑ ÅäÅ«ÀÇ °³¼ö¿¡¼­ »©ÁÜ
-        balances[_to]  = balances[_to].add(_value); // »ó´ë¹æÀÇ ÅäÅ« Áö°©¿¡ ÀÔ·ÂÇÑ ÅäÅ«ÀÇ °³¼ö¸¸Å­ ´õÇØÁÜ
+        approvals[_from][msg.sender] = approvals[_from][msg.sender].sub(_value); // ëŒ€í–‰ìì—ê²Œ í—ˆë½í•œ í† í°ì˜ ê°œìˆ˜ë¥¼ ì…ë ¥í•œ í† í°ì˜ ê°œìˆ˜ì—ì„œ ë¹¼ì¤Œ
+        balances[_from] = balances[_from].sub(_value); // ë‚´ê°€ ê°€ì§€ê³  ìˆëŠ” í† í°ì˜ ê°œìˆ˜ë¥¼ ì…ë ¥í•œ í† í°ì˜ ê°œìˆ˜ì—ì„œ ë¹¼ì¤Œ
+        balances[_to]  = balances[_to].add(_value); // ìƒëŒ€ë°©ì˜ í† í° ì§€ê°‘ì— ì…ë ¥í•œ í† í°ì˜ ê°œìˆ˜ë§Œí¼ ë”í•´ì¤Œ
         
-        Transfer(_from, _to, _value); // eventÇÔ¼öÀÎ Transfer¸¦ ±â·Ï
+        Transfer(_from, _to, _value); // eventí•¨ìˆ˜ì¸ Transferë¥¼ ê¸°ë¡
         
         return true;
     }
@@ -352,13 +352,13 @@ contract HyunJaeToken is ERC20Interface, OwnerHelper // SimpleTokenÀÌ ERC20Inter
         Transfer(0x0, _to, _value);
     }
     
-    function withdrawDevTokens(address _to, uint _value) public onlyOwner // È¸»ç º¸À¯ ÅäÅ« Ãâ±İ
+    function withdrawDevTokens(address _to, uint _value) public onlyOwner // íšŒì‚¬ ë³´ìœ  í† í° ì¶œê¸ˆ
     {
-        require(devSupply > tokenIssuedDevelop); // È¸»ç°¡ °¡Áö°í ÀÖ´Â ÅäÅ«ÀÇ ¹°·®ÀÌ Ãâ±İÇÒ ÅäÅ«ÀÇ ¹°·®º¸´Ù ¸¹¾Æ¾ß ÇÔ
+        require(devSupply > tokenIssuedDevelop); // íšŒì‚¬ê°€ ê°€ì§€ê³  ìˆëŠ” í† í°ì˜ ë¬¼ëŸ‰ì´ ì¶œê¸ˆí•  í† í°ì˜ ë¬¼ëŸ‰ë³´ë‹¤ ë§ì•„ì•¼ í•¨
         require(devSupply > tokenIssuedDevelop.add(_value));
         
-        balances[_to] = balances[_to].add(_value); // »ó´ë¹æ¿¡°Ô ÅäÅ«À» Áö±ŞÇÔ
-        tokenIssuedMkt = tokenIssuedMkt.add(_value); // È¸»ç°¡ ÆÇ¸ÅÇÑ ÅäÅ«ÀÇ ¾çÀ» ÀúÀå
+        balances[_to] = balances[_to].add(_value); // ìƒëŒ€ë°©ì—ê²Œ í† í°ì„ ì§€ê¸‰í•¨
+        tokenIssuedMkt = tokenIssuedMkt.add(_value); // íšŒì‚¬ê°€ íŒë§¤í•œ í† í°ì˜ ì–‘ì„ ì €ì¥
         totalSupply = totalSupply.add(_value); 
         personalLock[_to] = true;
         
