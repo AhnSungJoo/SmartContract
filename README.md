@@ -14,5 +14,4 @@ A smart contract is a computer protocol intended to digitally facilitate, verify
 - How to make Smart Contract for ICO : 
 https://github.com/AhnSungJoo/SmartContract/blob/master/ICO/token.sol
 
-- How to make Samrt Contract for E-Voting system with Blockchain :  
-https://github.com/AhnSungJoo/SmartContract/tree/master/E-Voting
+- How to make Samrt Contract for E-Voting system with Blockchain : https://github.com/AhnSungJoo/SmartContract/tree/master/E-Voting
